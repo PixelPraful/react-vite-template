@@ -1,6 +1,11 @@
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
 body.light-theme {
   background-color: #ffffff; /* Light background */
   color: #000000; /* Dark text */
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
 body.dark-theme {
