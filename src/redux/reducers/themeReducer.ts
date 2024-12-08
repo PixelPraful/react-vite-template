@@ -1,8 +1,7 @@
-const initialState = {
-  theme: "light",
-};
+import { initialState } from "./initialState";
 
-const themeReducer = (state = initialState, action: any) => {
+const themeReducer = (currentState: any, action: any) => {
+  const state = currentState || initialState.theme;
   switch (action.type) {
     case "TOGGLE_THEME":
       return {
