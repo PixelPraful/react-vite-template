@@ -1,5 +1,8 @@
 export const initialState = {
-  app: {},
+  app: {
+    errorMessage: "",
+    successMessage: "",
+  },
   user: null,
   ajaxCallsInProgress: 0,
   theme: "light",

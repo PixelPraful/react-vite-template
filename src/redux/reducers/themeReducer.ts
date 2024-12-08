@@ -1,25 +1,12 @@
+import { TOGGLE_THEME } from "../actions/actionTypes";
 import { initialState } from "./initialState";
 
-const themeReducer = (currentState: any, action: any) => {
-  const state = currentState || initialState.theme;
+const themeReducer = (currentState = initialState.theme, action: any) => {
   switch (action.type) {
-    case "TOGGLE_THEME":
-      return {
-        ...state,
-        theme: state.theme === "light" ? "dark" : "light",
-      };
-    case "SET_LIGHT_THEME":
-      return {
-        ...state,
-        theme: "light",
-      };
-    case "SET_DARK_THEME":
-      return {
-        ...state,
-        theme: "dark",
-      };
+    case TOGGLE_THEME:
+      return currentState === "light" ? "dark" : "light";
     default:
-      return state;
+      return currentState;
   }
 };
 

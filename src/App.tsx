@@ -18,9 +18,10 @@ import themeConfigLight from "./utils/themeConfigLight";
 import themeConfigDark from "./utils/themeConfigDark";
 import { useSelector } from "react-redux";
 import { RootState } from "./app/store";
+import Notification from "./components/Common/Notification";
 
 const App: React.FC = () => {
-  const theme = useSelector((state: RootState) => state.theme.theme);
+  const theme = useSelector((state: RootState) => state.theme);
 
   useEffect(() => {
     document.body.className = theme === "dark" ? "dark-theme" : "light-theme";
@@ -53,6 +54,7 @@ const App: React.FC = () => {
           />
         </Routes>
       </Router>
+      <Notification />
     </ConfigProvider>
   );
 };

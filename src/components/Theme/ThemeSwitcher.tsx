@@ -1,33 +1,27 @@
 import React from "react";
-import { useSelector, useDispatch } from "react-redux";
-import {
-  toggleTheme,
-  setLightTheme,
-  setDarkTheme,
-} from "../../redux/actions/themeActions";
+import { Switch } from "antd";
+import { BulbOutlined, MoonOutlined } from "@ant-design/icons";
+import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../../app/store";
+import { toggleTheme } from "../../redux/actions/themeActions";
 
 const ThemeSwitcher: React.FC = () => {
   const dispatch = useDispatch();
-  const theme = useSelector((state: RootState) => state.theme.theme);
+  const theme = useSelector((state: RootState) => state.theme);
 
-  const handleToggle = () => {
+  const handleThemeToggle = () => {
     dispatch(toggleTheme());
   };
 
-  const handleSetLight = () => {
-    dispatch(setLightTheme());
-  };
-
-  const handleSetDark = () => {
-    dispatch(setDarkTheme());
-  };
-
   return (
-    <div>
-      <button onClick={handleToggle}>Toggle Theme (Current: {theme})</button>
-      <button onClick={handleSetLight}>Set Light Theme</button>
-      <button onClick={handleSetDark}>Set Dark Theme</button>
+    <div className="theme-switcher">
+      <Switch
+        className="custom-switch"
+        checked={theme === "dark"}
+        onChange={handleThemeToggle}
+        checkedChildren={<MoonOutlined />}
+        unCheckedChildren={<BulbOutlined />}
+      />
     </div>
   );
 };
